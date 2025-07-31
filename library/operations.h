@@ -106,6 +106,11 @@ Node<T>* List<T> :: deleteFromLast(){
         cout<<"List Underflow\n";
         return NULL;
     }
+    if(head -> next == NULL){
+        Node<T>* temp = head;
+        head = NULL;
+        return head;
+    }
     Node<T>* temp = head;
     Node<T>* tail = NULL;
     while(temp -> next){
@@ -113,5 +118,33 @@ Node<T>* List<T> :: deleteFromLast(){
         temp = temp -> next;
     }
     tail -> next = NULL;
+    return temp;
+}
+
+template<typename T>
+Node<T>* List<T> :: deleteatIndex(int index){
+    int i = 0;
+    Node<T>* temp = head;
+    if(head == NULL){
+        cout<<"List Underflow";
+        return NULL;
+    }
+    if(index == 0){
+        Node<T>* t = head;
+        head = head -> next;
+        return t;
+    }
+    Node<T>* tail = NULL;
+    while(temp && i<index){
+        tail = temp;
+        temp = temp -> next;
+        i++;
+    }
+    if(temp == NULL){
+        cout<<"NO node exist";
+        return NULL;
+    }
+    Node<T>* t = temp;
+    tail -> next = temp -> next;
     return temp;
 }

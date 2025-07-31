@@ -10,7 +10,9 @@ int main(){
     myList.addInMiddle(5,4);
     myList.addAtLast(6);
 
-    // cout<<myList.deleteFromLast();
+    Node<int>* result = myList.deleteatIndex(0);
+    if(result)
+    cout<<(result -> val)<<"deleted node \n";
     myList.display();
     cout<<"End";
     return 0;
