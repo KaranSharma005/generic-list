@@ -1,16 +1,6 @@
 #include<iostream>
+#include "./nodeClass.h"
 using namespace std;
-template <typename T>
-class Node{
-    public : 
-    T val;
-    Node* next;
-    //Constructors
-    Node(T val) {
-        this -> val = val;
-        this -> next = NULL;
-    }
-};
 
 template<typename T>
 class List {
@@ -146,5 +136,5 @@ Node<T>* List<T> :: deleteatIndex(int index){
     }
     Node<T>* t = temp;
     tail -> next = temp -> next;
-    return temp;
+    return t;
 }

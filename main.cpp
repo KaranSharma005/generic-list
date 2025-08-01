@@ -3,7 +3,6 @@
 using namespace std;
 int main(){
     List<int> myList;
-    cout<<"Start";
     myList.addAtStart(0);
     myList.addAtStart(1);
     myList.addAtStart(2);
@@ -14,6 +13,5 @@ int main(){
     if(result)
     cout<<(result -> val)<<"deleted node \n";
     myList.display();
-    cout<<"End";
     return 0;
 }
