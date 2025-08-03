@@ -18,13 +18,17 @@ class List {
     Node<T>* deleteHead();
     Node<T>* deleteatIndex(int index);  //0 indexed
     Node<T>* deleteFromLast();
+
+    //getNode
+    Node<T>* getNode(int index);
 };
 
 template<typename T>
 void List<T>::addAtStart(T data) {
     Node<T>* newNode = new Node<T>(data);
     newNode->next = head; 
-    head = newNode;     
+    head = newNode;  
+    delete newNode;   
 }
 
 //add after the given index (0 indexed)
@@ -32,12 +36,12 @@ template<typename T>
 void List<T> :: addInMiddle(int index, T data){
     Node<T>* temp = head;
     Node<T>* tail = NULL;
-    Node<T>* newNode = new Node<T>(data);
     
     if(index == 0){
         addAtStart(data);
         return;
     }
+    Node<T>* newNode = new Node<T>(data);
 
     int i=0;
     while(temp && i < index){
@@ -53,6 +57,19 @@ void List<T> :: addInMiddle(int index, T data){
     else{
         tail -> next = newNode;
     }
+    delete newNode;
+}
+
+template<typename T>
+Node<T>* List<T> :: getNode(int index){
+    int i=0;
+    Node<T>* temp = head;
+
+    while(temp && i<index){
+        temp = temp -> next;
+        i++;
+    }
+    return temp;
 }
 
 template<typename T>
@@ -68,6 +85,7 @@ void List<T> :: addAtLast(T data){
     }
     Node<T>* newNode = new Node<T>(data);
     temp -> next = newNode;
+    delete newNode;
 }
 
 template<typename T>

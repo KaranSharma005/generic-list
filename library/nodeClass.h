@@ -1,13 +1,16 @@
-#include<iostream>
+#pragma once
+#include <iostream>
 using namespace std;
 template <typename T>
-class Node{
-    public : 
+class Node
+{
+public:
     T val;
-    Node* next;
-    //Constructors
-    Node(T val) {
-        this -> val = val;
-        this -> next = NULL;
+    Node *next;
+    // Constructors
+    Node(T val)
+    {
+        this->val = val;
+        this->next = NULL;
     }
 };

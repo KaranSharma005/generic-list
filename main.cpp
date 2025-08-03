@@ -15,3 +15,11 @@ int main(){
     myList.display();
     return 0;
 }
+
+// struct PairKV {
+//     int key;
+//     int value;
+// };
+
+// l2.addAtStart(p1);
+// l2.addAtLast(p2);  
